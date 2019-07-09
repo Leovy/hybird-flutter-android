@@ -12,7 +12,7 @@ plugins {
 android {
     compileSdkVersion(28)
     defaultConfig {
-        applicationId = "com.allin.demo.coroutinedroid"
+        applicationId = "com.nikeorever.hybird.flutteroid"
         minSdkVersion(19)
         targetSdkVersion(28)
         versionCode = 1
@@ -83,4 +83,7 @@ dependencies {
         exclude("com.google.guava", "guava")
     }
     kapt("com.google.auto.service:auto-service:1.0-rc5")
+
+    //Flutter module
+    implementation(project(":flutter"))
 }
