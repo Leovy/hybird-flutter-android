@@ -1,2 +1,2 @@
 include(":app")
-apply(from = "./flutter_settings.gradle")
+apply(from = "./flutter_module_settings.gradle")

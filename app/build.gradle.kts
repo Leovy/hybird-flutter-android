@@ -1,3 +1,4 @@
+import com.nikeorever.gradle.FlutterModuleApplicationPlugin
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
@@ -8,6 +9,8 @@ plugins {
     id("kotlin-android-extensions")
     kotlin("kapt")
 }
+
+apply<FlutterModuleApplicationPlugin>()
 
 android {
     compileSdkVersion(28)
@@ -83,7 +86,4 @@ dependencies {
         exclude("com.google.guava", "guava")
     }
     kapt("com.google.auto.service:auto-service:1.0-rc5")
-
-    //Flutter module
-    implementation(project(":flutter"))
 }

@@ -1,7 +1,0 @@
-// The binding and script evaluation allows the Flutter module to include itself (as :flutter)
-// and any Flutter plugins used by the module (as :package_info, :video_player, etc) in the evaluation context of your settings.gradle.
-setBinding(new Binding(gradle: this))
-
-Properties properties = new Properties()
-properties.load(file('local.properties').newDataInputStream())
-evaluate(new File(properties.getProperty("include_flutter_dir")))

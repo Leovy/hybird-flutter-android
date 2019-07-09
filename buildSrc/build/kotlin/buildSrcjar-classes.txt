@@ -1,0 +1,1 @@
+/home/xianxueliang/Projects/AndroidStudioProjects/HybirdFlutterApp/buildSrc/build/classes/kotlin/main/com/nikeorever/gradle/FlutterModuleApplicationPlugin.class

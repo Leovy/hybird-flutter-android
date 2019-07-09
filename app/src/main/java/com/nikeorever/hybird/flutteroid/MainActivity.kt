@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.FrameLayout
-import io.flutter.facade.Flutter
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,9 +11,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val flutterView = Flutter.createView(this, lifecycle, "route1")
-        addContentView(flutterView, FrameLayout.LayoutParams(600, 800).apply {
-            gravity = Gravity.CENTER
-        })
+        val flutterView = createFlutterView(this, lifecycle, "route1")
+        flutterView?.apply {
+            addContentView(this, FrameLayout.LayoutParams(600, 800).apply {
+                gravity = Gravity.CENTER
+            })
+        }
     }
 }
