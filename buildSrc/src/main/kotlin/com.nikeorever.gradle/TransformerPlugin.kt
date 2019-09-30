@@ -34,7 +34,7 @@ class NikeoTransformerPlugin : Plugin<Project> {
 }
 
 private class NikeoTransformer: Transform() {
-    override fun getName(): String = NikeoTransformer::class.simpleName.toString()
+    override fun getName(): String = "nikeo"
 
     override fun getInputTypes(): MutableSet<QualifiedContent.ContentType> {
         return TransformManager.CONTENT_CLASS
