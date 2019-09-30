@@ -1,4 +1,5 @@
 import com.nikeorever.gradle.FlutterModuleApplicationPlugin
+import com.nikeorever.gradle.NikeoTransformerPlugin
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
@@ -10,7 +11,10 @@ plugins {
     kotlin("kapt")
 }
 
-apply<FlutterModuleApplicationPlugin>()
+apply {
+    plugin<FlutterModuleApplicationPlugin>()
+    plugin<NikeoTransformerPlugin>()
+}
 
 android {
     compileSdkVersion(28)
@@ -43,8 +47,8 @@ tasks.withType < KotlinCompile<KotlinJvmOptions> > {
 
 dependencies {
     implementation(fileTree("dir" to "libs", "include" to "*.jar"))
-    implementation("androidx.appcompat:appcompat:1.0.2")
-    implementation("androidx.core:core-ktx:1.0.2")
+    implementation("androidx.appcompat:appcompat:1.1.0")
+    implementation("androidx.core:core-ktx:1.1.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test:runner:1.2.0")
@@ -54,36 +58,12 @@ dependencies {
     implementation(kotlin("reflect", KotlinCompilerVersion.VERSION))
 
     // Core
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0-M2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.1")
     // For android extension
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0-M2")
-
-    // Android Jetpack
-    val lifecycleVersion = "2.2.0-alpha01"
-    // ViewModel and LiveData
-    implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
-    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycleVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.1")
 
     // Android KTX
     // Core
-    implementation("androidx.core:core-ktx:1.0.2")
-    // For viewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha02")
-    // For textInfo.text = "up complete"
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha02")
-
-    val workVersion = "2.1.0-beta02"
-    // Kotlin + coroutines
-    implementation("androidx.work:work-runtime-ktx:$workVersion")
-
-    // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.6.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.6.0")
-
-    // Google AutoService
-    implementation("com.google.auto.service:auto-service-annotations:1.0-rc5")
-    implementation("com.google.auto:auto-common:0.10") {
-        exclude("com.google.guava", "guava")
-    }
-    kapt("com.google.auto.service:auto-service:1.0-rc5")
+    implementation("androidx.core:core-ktx:1.1.0")
+    testImplementation("com.android.tools.build:gradle:3.5.0")
 }

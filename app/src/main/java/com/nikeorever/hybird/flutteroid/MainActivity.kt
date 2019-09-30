@@ -17,5 +17,8 @@ class MainActivity : AppCompatActivity() {
                 gravity = Gravity.CENTER
             })
         }
+
+        Processor().process(this)
+        println("MainActivity")
     }
 }
